@@ -1,0 +1,8 @@
+---
+- name: Ansible Ping Test
+  hosts: test
+  gather_facts: false  # Disable facts gathering for this example
+
+  tasks:
+    - name: Ping the hosts
+      ping:
