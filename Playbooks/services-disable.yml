@@ -1,0 +1,41 @@
+---
+- name: Disable Multiple Services
+  hosts: test
+  become: yes  # Run tasks with sudo
+
+  tasks:
+    - name: Stop and disable Chronyd service
+      service:
+        name: chronyd
+        state: stopped
+      ignore_errors: yes  # Ignore errors if Chronyd is not installed or not running
+
+    - name: Disable Chronyd service at boot
+      systemd:
+        name: chronyd
+        enabled: no
+      ignore_errors: yes  # Ignore errors if Chronyd is not installed or not running
+
+    - name: Stop and disable Crond service
+      service:
+        name: crond
+        state: stopped
+      ignore_errors: yes  # Ignore errors if Crond is not installed or not running
+
+    - name: Disable Crond service at boot
+      systemd:
+        name: crond
+        enabled: no
+      ignore_errors: yes  # Ignore errors if Crond is not installed or not running
+
+    - name: Stop and disable Firewall service
+      service:
+        name: firewalld
+        state: stopped
+      ignore_errors: yes  # Ignore errors if Firewall is not installed or not running
+
+    - name: Disable MySQL service at boot
+      systemd:
+        name: firewalld
+        enabled: no
+      ignore_errors: yes  # Ignore errors if Firewall is not installed or not running
