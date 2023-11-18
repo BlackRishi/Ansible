@@ -32,10 +32,10 @@
       service:
         name: firewalld
         state: started
-      ignore_errors: yes  # Ignore errors if Firewalld is not installed or not stopped
+      ignore_errors: yes  # Ignore errors if Firewall is not installed or not stopped
 
     - name: Enable Firewall service at boot
       systemd:
         name: firewalld
         enabled: yes
-      ignore_errors: yes  # Ignore errors if Firewalld is not installed or not stopped
+      ignore_errors: yes  # Ignore errors if Firewall is not installed or not stopped
