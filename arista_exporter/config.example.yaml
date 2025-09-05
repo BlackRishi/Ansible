@@ -1,0 +1,29 @@
+targets:
+  - name: spine1
+    host: 10.0.0.11
+    port: 443
+    username: admin
+    password: changeme
+    ssl_verify: false
+  - name: leaf1
+    host: 10.0.0.21
+    port: 443
+    username: admin
+    password: changeme
+    ssl_verify: false
+
+# Polling interval in seconds
+scrape_interval: 15
+
+# Bind address for the exporter HTTP server
+listen_address: 0.0.0.0
+listen_port: 9805
+
+# Commands to run via eAPI (JSON-RPC) per scrape
+# You can add/remove commands based on your needs and device support
+commands:
+  - show version
+  - show interfaces status
+  - show interfaces counters
+  - show ip bgp summary
+  - show lldp neighbors detail
